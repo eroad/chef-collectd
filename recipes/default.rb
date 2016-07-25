@@ -22,6 +22,7 @@ package "collectd" do
 end
 
 service "collectd" do
+  action [:enable]
   supports :restart => true, :status => true
 end
 
@@ -82,8 +83,4 @@ ruby_block "delete_old_plugins" do
       end
     end
   end
-end
-
-service "collectd" do
-  action [:enable, :start]
 end
